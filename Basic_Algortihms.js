@@ -4,23 +4,23 @@
 /*Para escribir un algoritmo eficaz, ayuda el dividir un problema en partes más pequeñas y pensar cuidadosamente cómo resolver cada parte con código. Divide y vencerás */
 
 //First challenge
-function convertToF(celsius) {
+const convertToF = (celsius) => {
   let fahrenheit = (celsius * 9) / 5 + 32;
   return fahrenheit;
-}
+};
 
 //-----------------------
 //Invierte la cadena proporcionada.
 
 /*Es posible que necesites convertir la cadena en un arreglo antes de poder invertirla.
 Tu resultado debe ser una cadena.*/
-function reverseString(str) {
+const reverseString = (str) => {
   let arrFromStr = str.split("").reverse().join("");
   return arrFromStr;
-}
+};
 
 //----------------------------
-function factorialize(num) {
+const factorialize = (num) => {
   if (!Number.isInteger(num) && num < 0)
     return console.warn("Value must be a positive integer");
 
@@ -29,11 +29,11 @@ function factorialize(num) {
   } else {
     return num * factorialize(num - 1);
   }
-}
+};
 
 //-------------------------------------------
 
-function findLongestWordLength(str) {
+const findLongestWordLength = (str) => {
   let arrFromStr = str.split(" ");
   let size = 0;
   for (let i = 0; i < arrFromStr.length; i++) {
@@ -42,12 +42,12 @@ function findLongestWordLength(str) {
     }
   }
   return size;
-}
+};
 
 //-------------------------------------------------------------------------------------------
 /*Devuelve un arreglo que consista en el mayor número de cada sub-arreglo proporcionado. Por simplicidad, el arreglo dado contendrá exactamente 4 sub-arreglos. */
 
-function largestOfFour(arr) {
+const largestOfFour = (arr) => {
   let arrWithBiggestNumbers = [];
   let biggestNumber = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -60,19 +60,19 @@ function largestOfFour(arr) {
     biggestNumber = -Infinity;
   }
   return arrWithBiggestNumbers;
-}
+};
 
 //-----------------------------------------
 //Using substr() instead of EndsWith()
-function confirmEnding(str, target) {
+const confirmEnding = (str, target) => {
   let checkingWord = str.substr(str.length - target.length, target.length);
   return checkingWord === target;
-}
+};
 
 //_-----------------------------------------------------------
 /*Repite una cadena dada str (primer argumento) por un número (num) de veces (segundo argumento). Devuelve una cadena vacía si num no es un número positivo. Para este desafío, no utilices el método incorporado .repeat(). */
 
-function repeatStringNumTimes(str, num) {
+const repeatStringNumTimes = (str, num) => {
   if (!str || !num) return console.warn("You're missing a value");
   if (num < 1) return " ";
   let array = [];
@@ -80,20 +80,20 @@ function repeatStringNumTimes(str, num) {
     array.push(str);
   }
   return array.join("");
-}
+};
 
 //---------------------------------------------------------
-function truncateString(str, num) {
+const truncateString = (str, num) => {
   if (str.length > num) {
     return `${str.substr(0, num)}...`;
   }
   return str;
-}
+};
 
 //-----------------------------------------------------------------------------
 /*Crea una función que recorra un arreglo arr y devuelva el primer elemento que pase un "detector de verdad". Esto significa que dado un elemento x, el "detector de verdad" es pasado si func(x) es true. Si ningún elemento pasa la prueba. la función debería devolver undefined. */
 
-function findElement(arr, func) {
+const findElement = (arr, func) => {
   let num = undefined;
   for (let i = 0; i < arr.length; i++) {
     if (func(arr[i])) {
@@ -101,19 +101,19 @@ function findElement(arr, func) {
     }
   }
   return num;
-}
+};
 
 //-----------------------------------------------------------------------------------------
 /*Devuelve la cadena proporcionada con la primera letra de cada palabra en mayúsculas. Asegúrate de que el resto de la palabra esté en minúsculas.
 Como propósito de este ejercicio, debes también usar mayúsculas conectando palabras como the y of. */
 
-function titleCase(str) {
+const titleCase = (str) => {
   var convertToArray = str.toLowerCase().split(" ");
   var result = convertToArray.map(function (val) {
     return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
   });
   return result.join(" ");
-}
+};
 
 //_----------------------------------------------------------------------------------------------
 
@@ -122,12 +122,12 @@ Copia cada elemento del primer arreglo en el segundo arreglo, en orden.
 Comienza insertando elementos en el índice n del segundo arreglo.
 Devuelve el arreglo resultante. Los arreglos de entrada deben permanecer iguales luego de que se ejecute la función. */
 
-function frankenSplice(arr1, arr2, n) {
+const frankenSplice = (arr1, arr2, n) => {
   let firstArr = [...arr1],
     secondArr = [...arr2];
   secondArr.splice(n, 0, ...firstArr);
   return secondArr;
-}
+};
 
 //--------------------------------------------------------------
 
@@ -144,17 +144,17 @@ const getIndexToIns = (arr, num) => {
 
 //-------------------------------------------------------------------
 
-function mutation(arr) {
+const mutation = (arr) => {
   let [firstValue, secondValue] = arr;
   firstValue = firstValue.toLowerCase().split("");
   secondValue = secondValue.toLowerCase().split("");
 
   return secondValue.every((e) => firstValue.includes(e));
-}
+};
 
 //----------------------------------------------------------------
 
-function chunkArrayInGroups(arr, size) {
+const chunkArrayInGroups = (arr, size) => {
   let newArr = []; //First we create an empty array, where we will store our 'chunks'
   for (let i = 0; i < arr.length; i += size) {
     newArr.push(arr.slice(i, i + size));
@@ -164,4 +164,4 @@ function chunkArrayInGroups(arr, size) {
 Note that this for loop does not loop through arr. Instead, we are using the loop to generate numbers we can use as indices to slice the array in the right locations.
 Inside our loop, we create each chunk using arr.slice(i, i+size), and add this value to arr2 with arr2.push().
 Finally, we return the value of arr2.*/
-}
+};
